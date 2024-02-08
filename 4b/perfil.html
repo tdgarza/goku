@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomas Garza</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #5b569f;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(177, 21, 21); /*color de las letras*/
+            text-align: center;
+        }
+        .perfil{
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background-color: azure;
+            padding: 20px;
+            box-shadow: 0 10px 10px #000;
+        }
+        .foto-perfil{
+            width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+
+    </style>
+    <div class="perfil">
+        <img src="perfil.jpg" alt="foto de perfil" class="foto-perfil">
+        <h1 id="nombre">Nombre</h1>
+        <p id="formacion">Formacion Academica</p>
+        <h2>Gustos</h2>
+        <ul>
+            <li id="musica">Musica favorita</li>
+            <li id="pasatiempos">Pasatiempos</li>
+            <li id="tv">Programas de television favoritos</li>
+        </ul>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentloaded', function(){
+            document.getElementById('nombre').textContent='Tomas Garza';
+            document.getElementById('formacion').textContent='Secundaria';
+            document.getElementById('musica').textContent='Pop';
+            document.getElementById('pasatiempos').textContent='Jugar Volleyball';
+            document.getElementById('tv').textContent='Infieles';
+
+        });
+
+    </script>
+</body>
+</html>
