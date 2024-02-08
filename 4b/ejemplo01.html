@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Estudiantil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+}
+
+.perfil {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    </style>
+    <div class="perfil">
+        <img src="foto-perfil.jpg" alt="Foto de Perfil" class="foto-perfil">
+        <h1 id="nombre">Nombre del Estudiante</h1>
+        <p id="formacion">Formación Académica</p>
+        <h2>Gustos</h2>
+        <ul>
+            <li id="musica">Música favorita</li>
+            <li id="pasatiempos">Pasatiempos</li>
+            <li id="tv">Programas de TV favoritos</li>
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Aquí podrías añadir interacciones, por ejemplo, cargar la información dinámicamente, etc.
+    // Ejemplo: Cambiar el nombre del estudiante dinámicamente
+    //document.addEventListener('DOMContentLoaded', function() {...});: Este código añade un "escuchador de eventos" al documento. 
+    //El evento DOMContentLoaded se dispara cuando el documento HTML ha sido completamente cargado y parseado, sin esperar hojas de estilo, 
+    //imágenes, y subframes para terminar de cargar. La función anónima que se pasa como segundo argumento al addEventListener se ejecuta en ese momento.
+    document.getElementById('nombre').textContent = 'Juan Pérez';
+    document.getElementById('formacion').textContent = 'Ingeniería en Sistemas';
+    document.getElementById('musica').textContent = 'Rock Clásico';
+    document.getElementById('pasatiempos').textContent = 'Leer, Programar';
+    document.getElementById('tv').textContent = 'The Big Bang Theory';
+});
+
+    </script>
+</body>
+</html>
