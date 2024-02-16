@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Pagina principal</title>
+</head>
+<body>
+    
+    <div style="margin: 24px;">
+        <nav class="nav navbar-light" style="background-color: #9bc6e5;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="perfil1.html">Perfil</a><br>
+                                <a class="dropdown-item" href="calculadora.html">Calculadora</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <style>
+        body{
+            background-color: #5b569f;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(177, 21, 21); /*color de las letras*/
+            text-align: center;
+        }
+        .perfil{
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background-color: azure;
+            padding: 20px;
+            box-shadow: 0 10px 10px #000;
+        }
+        .foto-perfil{
+            width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+    <div class="perfil">
+        <img src="perfil.jpg" alt="foto de perfil" class="foto-perfil">
+        <h1 id="nombre">Nombre</h1>
+        <p id="formacion">Formacion Academica</p>
+        <h2>Gustos</h2>
+        <ul>
+            <li id="musica">Musica favorita</li>
+            <li id="pasatiempos">Pasatiempos</li>
+            <li id="tv">Programas de television favoritos</li>
+        </ul>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('nombre').textContent='Tomas Garza';
+            document.getElementById('formacion').textContent='Docente';
+            document.getElementById('musica').textContent='Rock, Grind, Death, Heavy, Hip-Hop';
+            document.getElementById('pasatiempos').textContent='Leer y comprar';
+            document.getElementById('tv').textContent='Infieles, Jujutsu Kaisen, One piece, Solo Leveling, Naruto';
+
+        });
+
+    </script>
+</body>
+</html>

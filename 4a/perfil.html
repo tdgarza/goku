@@ -11,11 +11,56 @@
         body{
             background-color: #94B0DA;
             font-family: Arial, Helvetica, sans-serif;
-            color: aliceblue; /* esto es para el color de letra*/
+            color: rgb(41, 47, 52); /* esto es para el color de letra*/
             text-align: center;    
+        }
+        .perfil{
+           margin: 20px auto;
+           width: 80%;
+           max-width: 600px;
+           background-color: bisque;
+           padding: 20px;
+           box-shadow: 0 0 10px black;
+        }
+        .foto-perfil{
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+        ul{
+            list-style-type: none;
+            
         }
 
     </style>
-    <h1>Tomas Garza</h1>
+    <div class="perfil">
+        <img src="perfil.jpg" alt="Alabado sea mi senor Satanas" class="foto-perfil">
+        <h1 id="nombre">Nombre de perfil</h1>
+        <h3 id="especialidad">Especialidad del cetis</h3>
+        <h2>Gustos personales</h2>
+        <ul> 
+        <li id="musica">Musica Favorita</li> 
+        <li id="pogramas">Programas Favoritos</li> 
+        </ul>
+        <h2>Informacion de contacto</h2>
+        <p id="telefono">Telefono</p>
+        <p id="">Correo</p>
+        <p id="biografia">Aqui va mi historia personal</p>
+    
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('nombre').textContent='Tomas Garza';
+            document.getElementById('especialidad').textContent='Programacion';
+            document.getElementById('musica').textContent='Taylor Swift, Metallica, Harry Styles, etc, etc';
+            document.getElementById('programas').textContent='Infieles, Amy Rey, Casos de la vida';
+            document.getElementById('telefono').textContent='7778888777';
+            document.getElementById('biografia').textContent='aqui va toda mi vida';
+        });
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Perfil del Estudiante</title>
+        <link rel="stylesheet" href="estilos.css"> <!-- Asegúrate de que el nombre del archivo CSS coincida -->
+    </head>
+    <body>
+        <div class="perfil">
+            <img src="/4a/perfil.jpg" alt="Foto de perfil" class="foto-perfil" id="fotoPerfil">
+            <h1 id="nombre">Nombre del Estudiante</h1>
+            <p><strong>Formación:</strong> <span id="formacion">Ingeniería en Sistemas</span></p>
+            <p><strong>Música favorita:</strong> <span id="musica">Rock Clásico</span></p>
+            <p><strong>Pasatiempos:</strong> <span id="pasatiempos">Leer, Programar</span></p>
+            <p><strong>Programas de TV favoritos:</strong> <span id="tv">The Big Bang Theory</span></p>
+            <p><strong>Email:</strong> <span id="email">juan.perez@ejemplo.com</span></p>
+            <p><strong>Teléfono:</strong> <span id="telefono">+1234567890</span></p>
+            <p id="biografia">Biografía del estudiante...</p>
+        </div>
+    
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var perfiles = [
+        {
+            nombre: "Juan Pérez",
+            formacion: "Ingeniería en Sistemas",
+            musica: "Rock Clásico",
+            pasatiempos: "Leer, Programar",
+            tv: "The Big Bang Theory",
+            email: "juan.perez@ejemplo.com",
+            telefono: "+1234567890",
+            biografia: "Apasionado por la tecnología y el desarrollo de software."
+        },
+        {
+            nombre: "María López",
+            formacion: "Diseño Gráfico",
+            musica: "Jazz",
+            pasatiempos: "Diseñar, Pintar",
+            tv: "Abstract",
+            email: "maria.lopez@ejemplo.com",
+            telefono: "+0987654321",
+            biografia: "Creadora visual, siempre buscando inspiración en el mundo que me rodea."
+        },
+        // Añade más perfiles según necesites
+    ];
+
+    function actualizarPerfil() {
+        var horaActual = new Date().getHours();
+        var perfil;
+
+        if(horaActual >= 8 && horaActual < 10) {
+            perfil = perfiles[0]; // Juan Pérez
+        } else if(horaActual >= 10 && horaActual < 12) {
+            perfil = perfiles[1]; // María López
+        } // Continúa agregando más condiciones para otros perfiles y rangos horarios
+
+        // Actualiza el DOM con el perfil seleccionado
+        if(perfil) {
+            document.getElementById('nombre').textContent = perfil.nombre;
+            document.getElementById('formacion').textContent = perfil.formacion;
+            document.getElementById('musica').textContent = perfil.musica;
+            document.getElementById('pasatiempos').textContent = perfil.pasatiempos;
+            document.getElementById('tv').textContent = perfil.tv;
+            document.getElementById('email').textContent = perfil.email;
+            document.getElementById('telefono').textContent = perfil.telefono;
+            document.getElementById('biografia').textContent = perfil.biografia;
+        }
+    }
+
+    actualizarPerfil(); // Llama a actualizarPerfil al cargar la página
+    // Considera llamar a actualizarPerfil() cada hora, si necesitas actualización automática sin recargar la página
+    // setInterval(actualizarPerfil, 3600000); // 3600000 ms = 1 hora
+});
+
+    </script>
+</body>
+</html>
