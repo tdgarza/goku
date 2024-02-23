@@ -51,15 +51,47 @@
         </nav>
     </div>
 
-    <div class="jumbotron">
-        <h1 class="display-4" style="font-family: 'zikkalya', sans-serif; color: pink;">Hola!</h1>
-        <i class="fa-solid fa-ribbon"></i>
-        <p class="lead">Esta es mi pagina personal para la materia de Desarrolla Aplicaciones que se ejecutan en el Servidor.</p>
-        <hr class="my-4">
-        <p>Mi nombre es Tomas Garza del grupo 4B de programacion Vespertino</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-      </div>
+    <div class="calc">
+        <input type="text" id="ans">
+        <div class="btn">
+            <input type="button" value='C' onclick="Clear()">
+            <input type="button" value='%' onclick="Solve('%')">
+            <input type="button" value='←' onclick="Back('←')">
+            <input type="button" value='/' onclick="Solve('/')">
+            <br>
+            <input type="button" value='7' onclick="Solve('7')">
+            <input type="button" value='8' onclick="Solve('8')">
+            <input type="button" value='9' onclick="Solve('9')">
+            <input type="button" value='x' onclick="Solve('*')">
+            <br>
+            <input type="button" value='4' onclick="Solve('4')">
+            <input type="button" value='5' onclick="Solve('5')">
+            <input type="button" value='6' onclick="Solve('6')">
+            <input type="button" value='-' onclick="Solve('-')">
+            <br>
+            <input type="button" value='1' onclick="Solve('1')">
+            <input type="button" value='2' onclick="Solve('2')">
+            <input type="button" value='3' onclick="Solve('3')">
+            <input type="button" value='+' onclick="Solve('+')">
+            <br>
+            <input type="button" value='00' onclick="Solve('00')">
+            <input type="button" value='0' onclick="Solve('0')">
+            <input type="button" value='.' onclick="Solve('.')">
+            <input type="button" value='=' onclick="Result()">
+            <br>
+        </div>
+    </div>
+    <script>
+        const Solve = (val) => {
+            const v=document.getElementById('ans');
+            v.value +=val;
+        }
+       const Clear = () =>{
+        const input=document.getElementById('ans');
+        input.value='';
+       }
+    </script>
+
+
 </body>
 </html>
