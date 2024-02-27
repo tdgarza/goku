@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+    <link href="https://fonts.cdnfonts.com/css/petit" rel="stylesheet">
+                
+                
+    <title>Pagina de Tomas</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-light" style="background-color: #9bc6e5;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" style="color: black; 
+                ">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDripdownMenuLink">
+                                <a class="dropdown-item" href="perfil.html">Perfil</a><br>
+                                <a class="dropdown-item" href="calculadora.html">Calculadora</a><br>
+                                <a class="dropdown-item" href="tienda.html">Tienda parte 1</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDripdownMenuLink">
+                                <a class="dropdown-item" href="tiendapedido.html">Tienda Pedido</a><br>
+                                <a class="dropdown-item" href="json.html">JSON</a><br>
+                                <a class="dropdown-item" href="tiendapedido2.html">Tienda parte 2</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDripdownMenuLink">
+                                <a class="dropdown-item" href="basededatos.html">Base de datos</a><br>
+                                <a class="dropdown-item" href="peliculas.html">Calculadora</a><br>
+                             
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display: grid;
+            place-items: center;
+            background-image: linear-gradient(to right, rgb(230, 94, 235), #00ddff);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .calc{
+            width: auto%;
+            min-width: 300px;
+            max-width: 90%;
+            height: auto;
+            min-height: 400px;
+            background-color: transparent;
+            position: relative;
+            border: 2px solid rgb(230, 94, 235);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-direction:column;
+        }
+        #ans{
+            width: 90%;
+            margin:20px;
+            margin-top: 20px;
+            font-family: 'Petit', sans-serif;                                 
+            font-size: 20px;
+            color: rgb(29, 29, 38);
+            text-align: right;
+            border-radius: 10px;
+
+        }
+        .btn input[type='button']{
+            width: 70px;
+            padding: 2px;
+            margin: 4px;
+            position: relative;
+            left: 23px;
+            top: 20px;
+            height: 55px;
+            cursor: pointer;
+            font size: 16px;
+            transition: all 0.5s ease;
+            background-color: transparent;
+            border-radius: 6px;
+        }
+        .btn input[type='button']:hover{
+            background-color: rgb(120, 136, 240);
+            color: white;
+        }
+        .calc-physics {
+    margin-top: 50px; /* Espacio entre las calculadoras */
+}
+
+.calc-physics .conversion-inputs,
+.calc-physics .btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.calc-physics select,
+.calc-physics input[type="number"],
+.calc-physics input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.calc-physics input[type="button"] {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calc-physics input[type="button"]:hover {
+    background-color: #00ddff;
+    color: white;
+}
+
+    </style>
+
+    
+    <div class="calc">
+        <input type="text" id="ans">
+        <div class="btn">
+            <input type="button" value='C' onclick="Clear()">
+            <input type="button" value='%' onclick="Solve('%')">
+            <input type="button" value='←' onclick="Back()">
+            <input type="button" value='/' onclick="Solve('/')">
+            <br>
+            <input type="button" value='7' onclick="Solve('7')">
+            <input type="button" value='8' onclick="Solve('8')">
+            <input type="button" value='9' onclick="Solve('9')">
+            <input type="button" value='x' onclick="Solve('*')">
+            <br>
+            <input type="button" value='4' onclick="Solve('4')">
+            <input type="button" value='5' onclick="Solve('5')">
+            <input type="button" value='6' onclick="Solve('6')">
+            <input type="button" value='-' onclick="Solve('-')">
+            <br>
+            <input type="button" value='1' onclick="Solve('1')">
+            <input type="button" value='2' onclick="Solve('2')">
+            <input type="button" value='3' onclick="Solve('3')">
+            <input type="button" value='+' onclick="Solve('+')">
+            <br>
+            <input type="button" value='00' onclick="Solve('00')">
+            <input type="button" value='0' onclick="Solve('0')">
+            <input type="button" value='.' onclick="Solve('.')">
+            <input type="button" value='=' onclick="Result()">
+            <br>
+
+        </div>
+    </div>
+    <div class="calc calc-physics">
+    <div class="conversion-inputs">
+        <input type="number" id="inputValue" placeholder="Introduce un valor">
+        <select id="fromUnit">
+            <option value="m">Metros</option>
+            <option value="cm">Centímetros</option>
+            <option value="mm">Milímetros</option>
+            <option value="ft">Pies</option>
+            <option value="in">Pulgadas</option>
+            <!-- Añade más unidades según sea necesario -->
+        </select>
+        a
+        <select id="toUnit">
+            <option value="m">Metros</option>
+            <option value="cm">Centímetros</option>
+            <option value="mm">Milímetros</option>
+            <option value="ft">Pies</option>
+            <option value="in">Pulgadas</option>
+            <!-- Añade más unidades según sea necesario -->
+        </select>
+        
+    </div>
+    <div class="btn">
+        <input type="button" value="Convertir" onclick="convertUnits()">
+        <input type="text" id="result" placeholder="Resultado" readonly>
+    </div>
+</div>
+
+    <script>
+        const Solve = (val) => {
+            const v=document.getElementById('ans');
+            v.value +=val;
+        }
+       const Clear = () =>{
+        const input=document.getElementById('ans');
+        input.value='';
+       }
+       const Result = () =>{
+        const v1 = document.getElementById('ans').value;
+        const v2 = eval(v1);
+        document.getElementById('ans').value=v2;
+       }
+       const Back = () =>{
+        const back=document.getElementById('ans');
+        back.value=back.value.slice(0,-1);
+       }
+       const convertUnits = () => {
+    const value = parseFloat(document.getElementById('inputValue').value); // Asegúrate de que el valor es un número
+    const fromUnit = document.getElementById('fromUnit').value;
+    const toUnit = document.getElementById('toUnit').value;
+    let result = 0;
+
+    // Convertir la unidad de entrada a metros
+    switch (fromUnit) {
+        case "cm":
+            value = value / 100; // cm a m
+            break;
+        case "mm":
+            value = value / 1000; // mm a m
+            break;
+        case "ft":
+            value = value * 0.3048; // ft a m
+            break;
+        case "in":
+            value = value * 0.0254; // in a m
+            break;
+        default:
+            // asumiendo que el valor ya está en metros
+            break;
+    }
+
+    // Convertir de metros a la unidad destino
+    switch (toUnit) {
+        case "cm":
+            result = value * 100;
+            break;
+        case "mm":
+            result = value * 1000;
+            break;
+        case "ft":
+            result = value / 0.3048;
+            break;
+        case "in":
+            result = value / 0.0254;
+            break;
+        default:
+            result = value; // m a m
+            break;
+    }
+
+    document.getElementById('result').value = result.toFixed(2); // Redondear a 2 decimales para simplicidad
+};
+
+       
+    </script>
+</body>
+</html>
