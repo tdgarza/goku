@@ -1,0 +1,12 @@
+{
+    "items": [
+      {
+        "category": "Comidas",
+        "items": [
+          {"name": "Plato 1", "description": "Descripción del plato 1", "price": "$10", "image": "link-a-imagen-1.jpg"},
+          {"name": "Plato 2", "description": "Descripción del plato 2", "price": "$12", "image": "link-a-imagen-2.jpg"}
+        ]
+      }
+    ]
+  }
+  

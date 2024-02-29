@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    
+
     <link href="https://fonts.cdnfonts.com/css/louis-george-cafe" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/zikkalya" rel="stylesheet">
-                           
+    <link href="https://fonts.cdnfonts.com/css/austin-3" rel="stylesheet">                      
     <title>Pagina principal</title>
 </head>
 <body>
@@ -51,12 +51,73 @@
         </nav>
     </div>
 
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: grid;
+            place-items: center;
+            background-image: linear-gradient(to right, violet, azure);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .calc{
+            font-family: 'Austin', sans-serif;
+            width: auto;
+            min-width: 300px;
+            max-width: 90%;
+            height: auto;
+            min-height: 400px;
+            background-color: transparent;
+            position: relative;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-direction: column;
+            border: 5px double white;
+        }
+        #ans{
+            width: 90%;
+            margin: 20px;
+            margin-top: 20px;
+            font-family: 'Austin', sans-serif;
+            font-size: 30px;
+            color: blueviolet;
+            text-align: right;
+            border-radius: 10px;
+            
+        }
+        .btn input[type='button']{
+            width: 70px;
+            padding: 2px;
+            margin: 4px;
+            position: relative;
+            left: 23px;
+            top: 20px;
+            height: 55px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.5s ease;
+            background-color: transparent;
+            border-radius: 6px;
+        }
+        .btn input[type='button']:hover{
+            background-color: antiquewhite;
+            color: black;
+        }
+    </style>
+
     <div class="calc">
         <input type="text" id="ans">
         <div class="btn">
             <input type="button" value='C' onclick="Clear()">
             <input type="button" value='%' onclick="Solve('%')">
-            <input type="button" value='←' onclick="Back('←')">
+            <input type="button" value='←' onclick="Back()">
             <input type="button" value='/' onclick="Solve('/')">
             <br>
             <input type="button" value='7' onclick="Solve('7')">
@@ -95,7 +156,11 @@
         const v2 = eval(v1);
         document.getElementById('ans').value=v2;
        }
-       
+       const Back = () =>{
+        const back = document. getElementById('ans');
+        back.value = back.value.slice(0,-1);
+       }
+
     </script>
 
 
