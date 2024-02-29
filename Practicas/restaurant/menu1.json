@@ -1,0 +1,56 @@
+{
+    "items": [
+      {
+        "category": "Desayunos",
+        "items": [
+          {
+            "name": "Huevos Rancheros",
+            "description": "Huevos al gusto con salsa ranchera, acompañados de frijoles y tortillas.",
+            "price": "$5",
+            "image": "link-a-imagen-huevos.jpg"
+          },
+          {
+            "name": "Pancakes",
+            "description": "Pancakes esponjosos con miel de maple y mantequilla.",
+            "price": "$4",
+            "image": "link-a-imagen-pancakes.jpg"
+          }
+        ]
+      },
+      {
+        "category": "Almuerzos",
+        "items": [
+          {
+            "name": "Ensalada César",
+            "description": "Lechuga romana, crutones, queso parmesano y nuestro aderezo César especial.",
+            "price": "$6",
+            "image": "link-a-imagen-ensalada.jpg"
+          },
+          {
+            "name": "Burger Clásica",
+            "description": "Hamburguesa con queso, lechuga, tomate y nuestras salsas especiales.",
+            "price": "$8",
+            "image": "link-a-imagen-burger.jpg"
+          }
+        ]
+      },
+      {
+        "category": "Bebidas",
+        "items": [
+          {
+            "name": "Café Americano",
+            "description": "Café fuerte y aromático, servido caliente.",
+            "price": "$2",
+            "image": "link-a-imagen-cafe.jpg"
+          },
+          {
+            "name": "Jugo de Naranja Natural",
+            "description": "Jugo recién exprimido de naranjas seleccionadas.",
+            "price": "$3",
+            "image": "link-a-imagen-jugo.jpg"
+          }
+        ]
+      }
+    ]
+  }
+  
