@@ -24,13 +24,13 @@
             "name": "Ensalada César",
             "description": "Lechuga romana, crutones, queso parmesano y nuestro aderezo César especial.",
             "price": "$6",
-            "image": "link-a-imagen-ensalada.jpg"
+            "image": "01.jpg"
           },
           {
             "name": "Burger Clásica",
             "description": "Hamburguesa con queso, lechuga, tomate y nuestras salsas especiales.",
             "price": "$8",
-            "image": "link-a-imagen-burger.jpg"
+            "image": "02.jpg"
           }
         ]
       },

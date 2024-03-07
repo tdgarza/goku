@@ -1,0 +1,74 @@
+    "items":[
+        {
+            "category": "Desayunos",
+            "items":[
+                {
+                    "name":"Huevos Rancheros",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/08.jpg"
+                },
+                {
+                    "name":"Huevos Rancheros 2",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/09.jpg"
+                },
+                {
+                    "name":"Huevos Rancheros 2",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/09.jpg"
+                }
+
+            ]
+        },
+        {
+            "category": "Almuerzos",
+            "items":[
+                {
+                    "name":"Huevos Rancheros",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/08.jpg"
+                },
+                {
+                    "name":"Huevos Rancheros 2",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/09.jpg"
+                },
+                {
+                    "name":"Huevos Rancheros 2",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/09.jpg"
+                }
+
+            ]
+        },
+        {
+            "category": "Comidas",
+            "items":[
+                {
+                    "name":"Huevos Rancheros",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/08.jpg"
+                },
+                {
+                    "name":"Huevos Rancheros 2",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/09.jpg"
+                },
+                {
+                    "name":"Huevos Rancheros 2",
+                    "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                    "price":"$120.00",
+                    "image":"img/09.jpg"
+                }
+
+            ]
+        }
+    ]

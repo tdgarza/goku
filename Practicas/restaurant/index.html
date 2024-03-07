@@ -7,6 +7,67 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <style>
+        /* Estilos para el contenedor del menú */
+#menu-container {
+    max-width: 800px; /* Ajusta según necesidad */
+    margin: 20px auto; /* Centra el contenedor */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo claro para el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilo para los títulos de categoría */
+h3 {
+    color: #333; /* Color oscuro para el texto */
+    font-size: 24px; /* Tamaño grande para títulos de categoría */
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4CAF50; /* Subrayado de título con color */
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%; /* Ancho completo dentro del contenedor */
+    border-collapse: collapse; /* Colapsa bordes entre celdas */
+    margin-top: 10px; /* Espacio arriba de la tabla */
+}
+
+th, td {
+    text-align: left; /* Alinea texto a la izquierda */
+    padding: 8px; /* Espaciado interno para celdas */
+    border-bottom: 1px solid #ddd; /* Línea sutil entre filas */
+}
+
+th {
+    background-color: #84d9ee; /* Fondo verde para cabeceras */
+    color: white; /* Texto blanco para cabeceras */
+}
+
+/* Mejoras para las imágenes dentro de las tablas */
+img {
+    display: block;
+    max-width: 100px; /* Ancho fijo para imágenes */
+    height: auto; /* Altura auto para mantener proporción */
+    margin: 0 auto; /* Centra imagen en la celda */
+}
+
+/* Estilos para inputs de cantidad */
+input[type="number"] {
+    width: 60px; /* Ancho fijo para input */
+    padding: 5px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    text-align: center; /* Alinea el número al centro */
+}
+
+/* Hover sobre las filas para mejorar la interactividad */
+tr:hover {
+    background-color: #4fb8cd;
+}
+
+    </style>
     <div id="menu-container"></div>
 
     <script src="menu.js"></script>

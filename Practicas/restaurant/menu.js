@@ -1,4 +1,4 @@
-fetch('menu.json')
+fetch('menu1.json')
 .then(response => response.json())
 .then(data => {
     const menuContainer = document.getElementById('menu-container');
