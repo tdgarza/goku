@@ -1,0 +1,100 @@
+{
+    "items":[
+    {
+        "category":"Desayunos",
+        "items":[
+            {
+                "name":"Huevos rancheros",
+                "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/01.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            }  
+        ]
+    },
+    {
+        "category":"Almuerzos",
+        "items":[
+            {
+                "name":"Huevos rancheros",
+                "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/01.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            }
+            
+        ]
+    },
+    {
+        "category":"Comidas",
+        "items":[
+            {
+                "name":"Huevos rancheros",
+                "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/01.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            }
+            
+        ]
+    },
+    {
+        "category":"Postres",
+        "items":[
+            {
+                "name":"Huevos rancheros",
+                "description":"Huevos al gusto con salsa ranchera, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/01.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            },
+            {
+                "name":"Huevos revueltos",
+                "description":"Huevos al gusto revueltos con jamon, chorizo, machado, atun, acompanados de frijoles y tortillas.",
+                "price":"$150.00",
+                "image":"img/02.jpg"
+            }
+            
+        ]
+    }
+
+]
+}
