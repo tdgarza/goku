@@ -20,10 +20,14 @@ fetch('menu1.json')
 //del menú en el HTML mediante getElementById('menu-container'), y luego se itera sobre los elementos (categorías) del menú.
     data.items.forEach(category => {
         const categoryTitle = document.createElement('h2');
+        //¿Qué hace? Aquí se crea un elemento h2, se asigna el nombre de la categoría como su 
+        //contenido de texto, y luego se añade este título al contenedor del menú.
         categoryTitle.textContent = category.category;
         menuContainer.appendChild(categoryTitle);
         
         const table = document.createElement('table');
+        //¿Qué hace? Se crea un elemento table para cada categoría. Además, se prepara el encabezado 
+        //(tableHead) con las columnas pertinentes. tableBody se inicializa vacío y se llenará con los elementos de la categoría.
         const tableHead = `<tr><th>Foto</th><th>Descripción</th><th>Precio</th></tr>`;
         let tableBody = '';
 
@@ -40,8 +44,16 @@ fetch('menu1.json')
                             <td>${item.price}</td>
                           </tr>`;
         });
+//¿Qué hace? Para cada item dentro de category.items, se concatena una nueva fila (<tr>) a tableBody. 
+//Esta fila contiene una celda para la imagen del elemento (usando el atributo src para la URL de 
+//la imagen y alt para el texto alternativo), otra celda para el nombre y la descripción del elemento, 
+//y una tercera celda para el precio del elemento.
         
         table.innerHTML = tableHead + tableBody;
+        //¿Qué hace? Una vez completadas todas las filas de la tabla para los elementos de una categoría, 
+        //se combina el encabezado de la tabla (tableHead) con el cuerpo de la tabla (tableBody) y se 
+        //establece como el contenido HTML de la tabla. Finalmente, esta tabla se añade al contenedor 
+        //del menú en la página web.
         menuContainer.appendChild(table);
     });
 });
