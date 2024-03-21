@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Batman</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 800px; /* Ajustado según tus especificaciones */
+    background: url('fondo.jpg') no-repeat center center/cover;
+}
+
+.texto-presentacion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.batman-logo {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 100px;
+    height: 60px;
+    background-color: #000;
+    border-bottom: 20px solid yellow;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.batman-logo::before,
+.batman-logo::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.batman-logo::before {
+    left: -20px;
+    border-width: 0 40px 20px 0;
+    border-color: transparent #000 transparent transparent;
+}
+
+.batman-logo::after {
+    right: -20px;
+    border-width: 0 0 20px 40px;
+    border-color: transparent transparent transparent #000;
+}
+
+    </style>
+    <div class="banner">
+        <div class="batman-logo"></div>
+        <div class="texto-presentacion">
+            <h1>Bienvenido a mi página</h1>
+            <p>Te agradezco tu preferencia.</p>
+        </div>
+    </div>
+    <style>
+        body {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0e7db;
+}
+
+.bear {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.ear, .head, .eye, .nose {
+    position: absolute;
+    background-color: #654321;
+}
+
+.ear {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: -25px;
+}
+
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
+}
+
+.head {
+    width: 120px;
+    height: 150px;
+    top: 25px;
+    left: 40px;
+    border-radius: 50%;
+    background-color: #654321;
+}
+
+.eye {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 40px;
+    background-color: #fff;
+}
+
+.eye.left {
+    left: 30px;
+}
+
+.eye.right {
+    right: 30px;
+}
+
+.nose {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+}
+
+    </style>
+    <div class="bear">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+        <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose"></div>
+        </div>
+    </div>
+    <!-- Se mantiene el contenido previo aquí -->
+</body>
+</html>
