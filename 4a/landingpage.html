@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadpool</title>
+</head>
+<body>
+    <style>
+        body, html{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .deadpool{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background: url('deadpool.jpg') no-repeat center center/cover;
+            opacity: 50%;
+            left: 100px;
+            top: 50px;
+        }
+        .texto-presentacion{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: red;
+            text-align: center;
+            text-shadow: 1px 1px 2px black;
+        }
+        .circulo{
+
+        }
+        .cuadrado{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <div class="deadpool">
+        <div class="texto-presentacion">
+            <h1>Mi primer dibujo en CSS</h1>
+            <h2>Diseno por: Daniel Garza</h2>
+            <p>De la especialidad de programacion de 4 semestre de la escuela Ranchetis</p>
+        </div>
+    </div>
+    <div class="cuadrado" style="left: 150px; top:70px"></div>
+
+</body>
+</html>
