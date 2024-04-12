@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Aqui voy a poner lo de Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!--Aqui acaba lo de Bootstrap-->
+   
+    <!--Aqui voy a poner los diferentes FONTS que utilizare-->
+    <link href="https://fonts.cdnfonts.com/css/oldwin" rel="stylesheet">
+                
+
+    <title>Restaurante Cetis menu</title>
+</head>
+<body>
+    <!-- este div es los botones de la pagina index.html -->
+    <div style="margin: 24px;">
+        <nav class="nav navbar-light" style="background-color: #9bc6e5;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="perfil.html">Perfil</a><br>
+                                <a class="dropdown-item" href="calculadora.html">Calculadora</a><br>
+                                <a class="dropdown-item" href="tienda.html">Tienda</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="tiendapedido.html">Tienda Pedido</a><br>
+                                <a class="dropdown-item" href="json.html">Json</a><br>
+                                <a class="dropdown-item" href="tiendapedido1.html">Tienda Pedido 2</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="basedatos.html">Base de datos</a><br>
+                                <a class="dropdown-item" href="peliculas.html">Peliculas</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <h1>Menu del restaurant</h1>
+    <style>
+        img{
+            width: 200px;
+            height: auto;
+        }
+        table, th, td{
+            border: 1px solid darkcyan;
+            text-align: left;
+            padding: 10px;
+        }
+        table{
+            width: 80%;
+            margin: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px darkcyan;
+            margin-left: 50px;
+        }
+         tr:nth-child(even){
+            background-color: bisque;
+        }
+        tr:nth-child(odd){
+            background-color: rosybrown;
+        }
+        tr:hover{
+            background-color: #dcecf8;
+        }
+       
+
+    </style>
+    <h1>Bebidas</h1>
+    <table>
+        <tr>
+            <th>Imagen</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+        </tr>
+        <tr>
+            <td> <img src="img/agua.jpg" alt="Un vaso con agua fresca con hielo"</td>
+            <td><p>Este es un vaso con agua con hielo o al tiempo, de garrafon purificada, se le asigna una por cliente, la siguiente se les cobra, es restaurante no benefediciencia</p></td>
+            <td>$20</td>
+        </tr>
+        <tr>
+            <td><img src="img/aguafrescas.jpg" alt="aguas frescas"></td>
+            <td>Aguas de sabor Sandia, fresa, agua, tamarindo con sabor a limon pero se ve de jamaica</td>
+            <td>$30</td>
+        </tr>
+        <tr>
+            <td><img src="img/coca.jpg" alt="coca"></td>
+            <td>La coca va con hielo</td>
+            <td>$50</td>
+        </tr>
+    </table>
+
+    <h1>Desayunos</h1>
+    <table>
+        <tr>
+            <th>Imagen</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+        </tr>
+        <tr>
+            <td> <img src="img/01.jpg" alt="Un vaso con agua fresca con hielo"</td>
+            <td><p>Este es un vaso con agua con hielo o al tiempo, de garrafon purificada, se le asigna una por cliente, la siguiente se les cobra, es restaurante no benefediciencia</p></td>
+            <td>$20</td>
+        </tr>
+        <tr>
+            <td><img src="img/02.jpg" alt="aguas frescas"></td>
+            <td>Aguas de sabor Sandia, fresa, agua, tamarindo con sabor a limon pero se ve de jamaica</td>
+            <td>$30</td>
+        </tr>
+        <tr>
+            <td><img src="img/03.jpg" alt="coca"></td>
+            <td>La coca va con hielo</td>
+            <td>$50</td>
+        </tr>
+    </table>
+</body>
+</html>

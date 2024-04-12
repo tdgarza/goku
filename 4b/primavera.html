@@ -104,6 +104,11 @@
         border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
         position: relative;
     }
+    .dibujo{
+        position: relative;
+        width: 600px;
+        height: 600px;
+    }
  </style>
 
  <div class="banner">
@@ -112,16 +117,64 @@
         <p>Por el mejor programador del mundo mundial</p>
         <h3>Daniel Garza</h3>
     </div>
-    <div class="rectangulo"></div>
+    
+   </div>
+   <style>
+    .cuadrados{
+        width: 200px; 
+        height:300px; 
+        background-color:rgb(197, 153, 238);
+        border-radius: 10%; 
+        border-style: ridge;
+    }
+    .parrafo{
+      font-size: 12px; 
+      text-align: center;
+    }
+    .imagenpaginas{
+        height: 150px; 
+        width:150px; 
+        border-radius:20%; 
+        display:block; 
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    .container{
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-self: start;
+    }
+   </style>
+<div class="container">
+   <div class="cuadrados" style="left: 100px;">
+    <img src="/4b/img/pagina1.jpg" class="imagenpaginas"><br>
+    <a href="menu.html" style="text-align:center;display:block;">Primera pagina</a><br>
+    <p class="parrafo">Esta es la pagina donde el menu solo es una tabla</p>
+</div>
+<div class="cuadrados" style="left: 400px;">
+    <img src="/4b/img/03.jpg" class="imagenpaginas"><br>
+    <a href="menu4.html" style="text-align:center;display:block;">Primera pagina</a><br>
+    <p class="parrafo">Esta es la pagina donde el menu solo es una tabla</p>
+</div>
+    <div class="cuadrados" style="left: 700px;">
+        <img src="/4b/img/04.jpg" class="imagenpaginas"><br>
+        <a href="menu.html" style="text-align:center;display:block;">Primera pagina</a><br>
+        <p class="parrafo">Esta es la pagina donde el menu solo es una tabla</p>
+    </div>
+</div>
+<div class="container">
+    <div class="dibujo">
+        <div class="rectangulo"></div>
         <div class="cuadrado" style="left: 50px; top:150px; border-radius: 30%;"></div>
         <div class="triangulo" style="left: 50px; top:-200px"></div>
         <div class="triangulo" style="left: 280px; top:-275px"></div>
         <div class="triangulo" style="border-bottom: 50px solid white;;left: 180px; top:-150px; transform: rotate(180deg);border-left: 20px solid transparent;border-right: 20px solid transparent;"></div>
         <div class="huevo" style="left: 100px; top:-310px"></div>
         <div class="huevo" style="left: 240px; top:-422px"></div>
-
- </div>
-
+        </div>
+    </div>
 
 </body>
 </html>
