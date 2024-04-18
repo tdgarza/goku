@@ -6,6 +6,56 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <style>
+        /* Estilos específicos para review_order.html */
+#confirmationForm {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#confirmationForm label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#confirmationForm input, #confirmationForm select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#confirmationForm button {
+    width: auto;
+    padding: 10px 30px;
+    font-size: 18px;
+    display: block;
+    margin: 20px auto;
+    background-color: #008cba;
+}
+
+#confirmationForm div {
+    margin-top: 15px;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* Resaltar los detalles del pedido */
+#confirmationForm hr {
+    border-top: 2px solid #eee;
+}
+
+#confirmationForm div {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+    </style>
     <h1>Confirmar Pedido</h1>
     <form id="confirmationForm">
         <label for="name">Nombre:</label>
