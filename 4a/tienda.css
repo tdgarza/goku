@@ -1,0 +1,91 @@
+
+        body, html{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .deadpool{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url('/4a/img/fondorestaurant.jpg') no-repeat center center/cover;
+        }
+        .deadpool2{
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+        .texto-presentacion{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(179, 172, 238);
+            text-align: center;
+            text-shadow: 1px 1px 2px black;
+        }
+        .cuadrado{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            position: absolute;
+        }
+        .ojos{
+            display: block;
+            width: 50px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50% 50% 50% 50% / 60% 60% 60% 60%;
+            position: relative;
+        }
+        .triangulo-normal{
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 80px solid black;
+        }
+        .trianguloizquierda{
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-right: 40px solid black;
+            border-bottom: 40px solid transparent;
+        }
+        .elipse{
+            width: 50px;
+            height: 100px;
+            background-color: black;
+            border: 2px solid white;
+            -moz-border-radius: 0 100px 100px 0;
+            -webkit-border-radius: 0 100px 100px 0;
+            border-radius: 0 100px 100px 0;
+
+        }
+        .cuadrados{
+            width: 200px; 
+            height:300px; 
+            background-color:#9bc6e5; 
+            border-radius: 10%; 
+            border-style: ridge; 
+        }
+        .imagenpaginas{
+            width: 150px; 
+            height:auto; 
+            display:block; 
+            margin-left:auto; 
+            margin-right:auto;
+            border-radius: 20%;
+        }
+        .parrafo{
+            font-size: 12px;
+            text-align: center;
+        }
+        .container{
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-self: start;
+        }

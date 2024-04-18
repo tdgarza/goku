@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda en línea</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+    </style>
+    <h1>Tienda en línea de Comestibles</h1>
+    <form id="orderForm">
+        <div class="section">
+            <label for="lacteos">Lácteos:</label>
+            <select id="lacteos" name="lacteos">
+                <option value="leche">Leche</option>
+                <option value="queso">Queso</option>
+                <option value="yogurt">Yogurt</option>
+                <!-- Agregar más opciones aquí -->
+            </select>
+            <div>
+                Cantidad:
+                <label><input type="radio" name="cantidadLacteos" value="1"> 1</label>
+                <label><input type="radio" name="cantidadLacteos" value="2"> 2</label>
+                <label><input type="radio" name="cantidadLacteos" value="3"> 3</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <label for="frutas">Frutas:</label>
+            <select id="frutas" name="frutas">
+                <option value="manzana">Manzana</option>
+                <option value="banana">Banana</option>
+                <!-- Agregar más opciones aquí -->
+            </select>
+        </div>
+
+        <!-- Agregar más secciones aquí -->
+
+        <button type="button" onclick="submitForm()">Enviar pedido</button>
+    </form>
+
+    <script>
+        function submitForm() {
+    const formElement = document.getElementById('orderForm');
+    const formData = new FormData(formElement);
+    const queryParams = new URLSearchParams();
+
+    for (let [key, value] of formData.entries()) {
+        queryParams.append(key, value);
+    }
+
+    window.location.href = `review_order.html?${queryParams}`;
+}
+
+    </script>
+</body>
+</html>
