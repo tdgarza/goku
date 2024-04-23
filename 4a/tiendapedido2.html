@@ -25,6 +25,20 @@
             color: #5a5a5a;
             text-align: center;
         }
+        button{
+            background-color: crimson;
+            color: aliceblue;
+            padding: 10px 15px;
+            margin: 20px 0;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50%;
+        }
+        button:hover{
+            background-color: orange;
+            color: black;
+        }
 
     </style>
     <div style="margin: 24px;">
@@ -67,8 +81,90 @@
     <h1>Tienda en linea de Abarrotes</h1>
 
     <form id="orden">
+        <div class="seccion">
+            <label for="abarrotes">Abarrotes: </label>
+            <select id="abarrotes">
+                <option value="arroz">Arroz</option>
+                <option value="consome">consome</option>
+                <option value="azucar">Azucar</option>
+                <option value="cafe">Cafe</option>
+                <option value="mole">Mole</option>
+                <option value="sal">Sal</option>
+                <option value="mayonesa">Mayonesa</option>
+                <option value="catsup">Catsup</option>
+                <option value="pasta">Pasta</option>
+                <option value="miel">Miel</option>
+                <option value="cajeta">Cajeta</option>
+            </select>
+            <div>
+                Cantidad:
+                <label><input type="radio" name="cantidadAbarrotes" value="1"> 1 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="2"> 2 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="3"> 3 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="4"> 4 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="5"> 5 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="6"> 6 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="7"> 7 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="8"> 8 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="9"> 9 </label>
+                <label><input type="radio" name="cantidadAbarrotes" value="10"> 10 </label>
+            </div>
+        </div>
+        <div class="seccion">
+            <label for="enlatados">Enlatados: </label>
+            <select id="enlatados">
+                <option value="sopa">Sopa</option>
+                <option value="vegetales">Vegetales</option>
+                <option value="elotes">Azucar</option>
+                <option value="ensaladas">Ensaladas</option>
+                <option value="chiles">Chiles</option>
+                <option value="frijoles">Frijoles</option>
+                <option value="aceitunas">Aceitunas</option>
+                <option value="frutas">Frutas en Almibar</option>
+                <option value="chicharos">Chicharos</option>
+                <option value="sardinas">Sardinas</option>
+                <option value="atun">Atun</option>
+            </select>
+            <div>
+                Cantidad:
+                <label><input type="radio" name="cantidadEnlatados" value="1"> 1 </label>
+                <label><input type="radio" name="cantidadEnlatados" value="2"> 2 </label>
+                <label><input type="radio" name="cantidadEnlatados" value="3"> 3 </label>
+                <label><input type="radio" name="cantidadEnlatados" value="4"> 4 </label>
+                <label><input type="radio" name="cantidadEnlatados" value="5"> 5 </label>
+               
+            </div>
+        </div>
+        <div class="seccion">
+            <label for="lacteos">Lacteos: </label>
+        </div>
+        <div class="seccion">
+            <label for="botanas">Botanas: </label>
+        </div>
+        <div class="seccion">
+            <label for="confiteria">Confiteria: </label>
+        </div>
+        <div class="seccion">
+            <label for="frutas">Frutas y Verduras: </label>
+        </div>
+        <div class="seccion">
+            <label for="bebidas">Bebidas: </label>
+        </div>
+
+        <button type="button" onclick="submitForm()">Revisar Pedido</button>
 
     </form>
+    <script>
+        function submitForm(){
+            const formElements = document.getElementById('orden');
+            const formData = new FormData(formElements);
+            const queryParams = new URLSearchParams();
 
+            for(let[key,value] of formData.entries()){
+                queryParams.append(key,value);
+            }
+            window.location.href = `review_order.html?${queryParams}`;
+        }
+    </script>
 </body>
 </html>
