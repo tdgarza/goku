@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Aqui voy a poner lo de Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #confirmacion{
+            color: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #4062ea;
+            box-shadow: 20px 10px 10px rgb(237, 55, 152);
+            border-radius: 5px;
+        }
+        #confirmacion label{
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        #confirmacion input, #confirmacion select{
+            width: calc(100%, -20px);
+            padding: 10px;
+            margin-top: 5px;
+        }
+        #confirmacion button{
+            width: auto;
+            padding: 10px 30px;
+            font-size: 18px;
+            display: block;
+            margin: 20px auto;
+            background-color: #008cba;
+        }
+        #confirmacion div{
+            margin-top: 15px;
+            padding: 8px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+    <div style="margin: 24px;">
+        <nav class="nav navbar-light" style="background-color: #9bc6e5;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="perfil.html">Perfil</a><br>
+                                <a class="dropdown-item" href="calculadora.html">Calculadora</a><br>
+                                <a class="dropdown-item" href="tienda.html">Tienda</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="tiendapedido.html">Tienda Pedido</a><br>
+                                <a class="dropdown-item" href="json.html">Json</a><br>
+                                <a class="dropdown-item" href="tiendapedido1.html">Tienda Pedido 2</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="basedatos.html">Base de datos</a><br>
+                                <a class="dropdown-item" href="peliculas.html">Peliculas</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h1>Confirmar Pedido</h1>
+    <form id="confirmacion">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" required>
+        <label for="direccion">Direccion: </label>
+        <input type="text" name="direccion" id="direccion" placeholder="Calle/Numero/Colonia" required>
+        <label for="telefono">Telefono: </label>
+        <input type="text" name="telefono" id="telefono" placeholder="899-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        <label for="email">E-Mail: </label>
+        <input type="mail" name="email" id="email" placeholder="tuusuario@servidor.com" required>
+        <label for="paymentMethod">Metodo de Pago: </label>
+        <select name="paymentMethod" id="paymentMethod">
+            <option value="creditCard">Tarjeta de Credito</option>
+            <option value="Paypal">Paypal </option>
+        </select>
+        <button type="button" onclick="submitOrder()">Confirmar Pedido</button>
+    </form>
+</body>
+</html>

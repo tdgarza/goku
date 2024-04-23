@@ -87,6 +87,29 @@
                 border-bottom: 1px solid #ccc;
                 margin-bottom: 15px;
             }
+            #productForm{
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 15px grey;
+                padding: 20px;
+                max-width: 800px;
+                margin: 20px auto;
+            }
+            select input[type="number"]{
+                width: 50%;
+                padding: 10px;
+                margin-top: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type="radio"]{
+                margin-right: 5px;
+            }
+            label{
+                font-weight: bold;
+                margin-top: 15px;
+            }
+          
         </style>
         <h1>Tienda en linea de Abarrotes</h1>
 
@@ -135,13 +158,21 @@
                     <option value="sardinas">Sardinas</option>
                     <option value="chicharos">Chicharos</option>
                 </select>
+                <div>
+                    Cantidad: 
+                    <label><input type="radio" name="cantidadEnlatados" value="1">1</label>
+                    <label><input type="radio" name="cantidadEnlatados" value="2">2</label>
+                    <label><input type="radio" name="cantidadEnlatados" value="3">3</label>
+                    <label><input type="radio" name="cantidadEnlatados" value="4">4</label>
+                    <label><input type="radio" name="cantidadEnlatados" value="5">5</label>
+                </div>
             </div>
             <button type="button" onclick="submitForm()">Realizar Pedido</button>
         </form>
         <script>
             function submitForm(){
                 const formElements = document.getElementById('orden');
-                const formData =  new FormData(formElement);
+                const formData =  new FormData(formElements);
                 const queryParams = new URLSearchParams();
                 
                 for(let [key,value] of formData.entries()){
@@ -150,5 +181,6 @@
                 window.location.href = `review_order.html?${queryParams}`;
             }
         </script>
+        
     </body>
     </html>
