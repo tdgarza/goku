@@ -116,7 +116,7 @@
         <form id="orden">
             <div class="seccion">
                 <label for="abarrotes">Abarrotes: </label>
-                <select id="abarrotes">
+                <select id="abarrotes" name="abarrotes">
                     <option value="arroz">Arroz</option>
                     <option value="consome">Consome</option>
                     <option value="azucar">Azucar</option>
@@ -145,7 +145,7 @@
                 </div>
             </div>
             <div class="seccion">
-                <label for="enlatados">Enlatados: </label>
+                <label for="enlatados" name="enlatados" >Enlatados: </label>
                 <select name="enlatados" id="enlatados">
                     <option value="frijoles">Frijoles</option>
                     <option value="atun">Atun</option>
@@ -167,19 +167,50 @@
                     <label><input type="radio" name="cantidadEnlatados" value="5">5</label>
                 </div>
             </div>
+            <label for="abarrotes2">Abarrotes 2: </label>
+                <select id="abarrotes2" name="abarrotes2">
+                    <option value="arroz">Arroz</option>
+                    <option value="consome">Consome</option>
+                    <option value="azucar">Azucar</option>
+                    <option value="cafe">Cafe</option>
+                    <option value="mole">Mole</option>
+                    <option value="sal">Sal</option>
+                    <option value="mayonesa">Mayonesa</option>
+                    <option value="catsup">Catsup</option>
+                    <option value="pasta">Pasta</option>
+                    <option value="huevo">Huevo</option>
+                </select>
+                <div>
+                    Cantidad: 
+                    <label><input type="radio" name="cantidadAbarrotes2" value="1">1</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="2">2</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="3">3</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="4">4</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="5">5</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="6">6</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="">7</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="8">8</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="9">9</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="10">10</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="11">11</label>
+                    <label><input type="radio" name="cantidadAbarrotes2" value="12">12</label>
+                </div>
+            </div>
             <button type="button" onclick="submitForm()">Realizar Pedido</button>
         </form>
         <script>
-            function submitForm(){
-                const formElements = document.getElementById('orden');
-                const formData =  new FormData(formElements);
-                const queryParams = new URLSearchParams();
-                
-                for(let [key,value] of formData.entries()){
-                    queryParams.append(key,value);
-                }
-                window.location.href = `review_order.html?${queryParams}`;
-            }
+            function submitForm() {
+        const formElement = document.getElementById('orden');
+        const formData = new FormData(formElement);
+        const queryParams = new URLSearchParams();
+    
+        for (let [key, value] of formData.entries()) {
+            queryParams.append(key, value);
+        }
+    
+        window.location.href = `review_order.html?${queryParams}`;
+    }
+    
         </script>
         
     </body>
