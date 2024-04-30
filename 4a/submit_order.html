@@ -8,58 +8,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <title>Review</title>
+    <title>Pedido Finalizado</title>
 </head>
 <body>
     <style>
         body{
-            background-color: #D1CFE2;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: #F4F4F9;
+            margin: 0;
+            padding: 20px;
+            color: #666;
         }
         h1{
             text-align: center;
-            text-shadow: 5px 5px 5px #52B2CF;
+            color: #666;
+            text-shadow: 5px 5px 5px black;
         }
-        #confirmacion{
-            max-width: 600px;
-            margin: auto;
+        form, #resumenpedido{
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px #8d9d9d;
             padding: 20px;
-            background-color: #c1dff0;
-            box-shadow: 20px 10px 10px #8d99ae;
-            border-radius: 5px;
+            margin-top: 20px;
         }
-        #confirmacion label{
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            display: block;
-            margin-top: 10px;
-            font-weight: bolder;
-        }
-        #confirmacion input #confirmacion select{
-            width: calc(100%, -20px);
+        input[type="text"],input[type="email"],
+        select{
+            width: 100%;
             padding: 10px;
             margin-top: 5px;
-        }
-        #confirmacion button{
-            width: auto;
-            padding: 10px 30px;
-            font-size: 18px;
-            display: block;
-            margin: 20px auto;
-            background-color: #88ccf1;
-            border-radius: 10px;
-        }
-        #confirmacion div{
-            margin-top: 15px;
-            padding: 8px;
-            background-color: #f9f9f9;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 14px;
-            color: #555;
+            box-sizing: border-box;
         }
-        #confimacion hr{
-            border-top: 2px solid #eee;
-        }
-
+        
     </style>
     <div style="margin: 24px;">
         <nav class="navbar navbar-light" style="background-color: #9bc6e5;">
@@ -97,46 +79,9 @@
             </div>
         </nav>
     </div>
-    <h1>Confirmar Pedido</h1>
+    <h1>Resumen del pedido</h1>
+    <div class="resumenpedido">
 
-    <form id="confirmacion">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
-        <label for="direccion">Direccion</label>
-        <input type="text" name="direccion" id="direccion" placeholder="Calle, numero, colonia" required>
-        <label for="telefono">Telefono</label>
-        <input type="text" name="telefono" id="telefono" placeholder="xxx-xxx-xxx" required>
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" placeholder="tuusuario@servidor.com" required>
-        <select name="paymentMethod" id="paymentMethod">
-            <option value="creditCard">Tarjeta de Credito</option>
-            <option value="paypal">Paypal</option>
-            <option value="efectivo">Efectivo</option>
-        </select>
-        <button type="button" onclick="submitOrder()">Confirmar Pedido</button>
-    </form>
-    <script>
-        window.onload = function(){
-            const params = new URLSearchParams(window.location.search);
-            document.getElementById('confirmacion').appendChild(document.createElement('hr'));
-            for(const [key,value] of params.entries()){
-                const infoDiv = document.createElement('div');
-                infoDiv.textContent = `${key}: ${value}`;
-                document.getElementById('confirmacion').appendChild(infoDiv);
-                const hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = key;
-                hiddenInput.value = value;
-                document.getElementById('confirmacion').appendChild(hiddenInput);
-            }};
-        function submitOrder(){
-            const formElement = document.getElementById('confirmacion');
-            const formData = new FormData(formElement);
-            const queryParams = new URLSearchParams();
-            for (let [key, value] of formData.entries()){
-                queryParams.append(key,value);
-            }window.location.href = `submit_order.html?${queryParams}`;
-        }
-    </script>
+    </div>
 </body>
 </html>
