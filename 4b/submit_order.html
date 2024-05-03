@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Resumen</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="nav navbar-light" style="background-color: #9bc6e5;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="perfil.html">Perfil</a><br>
+                                <a class="dropdown-item" href="calculadora.html">Calculadora</a><br>
+                                <a class="dropdown-item" href="tienda.html">Tienda</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="tiendapedido.html">Tienda Pedido</a><br>
+                                <a class="dropdown-item" href="json.html">Json</a><br>
+                                <a class="dropdown-item" href="tiendapedido1.html">Tienda Pedido 2</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="basedatos.html">Base de datos</a><br>
+                                <a class="dropdown-item" href="peliculas.html">Peliculas</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <style>
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #666;
+        }
+        h1{
+            text-align: center;
+            color: tomato;
+            text-shadow: 5px 5px 5px #666;
+        }
+        form, #resumenpedido{
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px #666;
+            margin-top: 20px;
+        }
+    </style>
+    <h1>Resumen del pedido</h1>
+    <div id="resumenpedido"></div>
+    <script>
+        window.onload = function(){
+            const params =  new URLSearchParams(window.location.search);
+            const resumenpedido = document.getElementById('resumenpedido');
+            for (const [key,value] of params.entries()){
+                const detail = document.createElement('p');
+                detail.textContent = `${key}: ${value}`;
+                resumenpedido.appendChild(detail);
+            }
+        };
+    </script>
+    
+</body>
+</html>
