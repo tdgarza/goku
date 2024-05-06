@@ -112,7 +112,7 @@
         </div>
         <div class="seccion">
             <label for="enlatados">Enlatados: </label>
-            <select id="enlatados" name="Enlatados">
+            <select id="enlatados" name="enlatados">
                 <option value="sopa">Sopa</option>
                 <option value="vegetales">Vegetales</option>
                 <option value="elotes">Azucar</option>
@@ -131,33 +131,15 @@
                 <label><input type="radio" name="cantidadEnlatados" value="2"> 2 </label>
                 <label><input type="radio" name="cantidadEnlatados" value="3"> 3 </label>
                 <label><input type="radio" name="cantidadEnlatados" value="4"> 4 </label>
-                <label><input type="radio" name="cantidadEnlatados" value="5"> 5 </label>
-               
+                <label><input type="radio" name="cantidadEnlatados" value="5"> 5 </label> 
             </div>
         </div>
-        <div class="seccion">
-            <label for="lacteos">Lacteos: </label>
-        </div>
-        <div class="seccion">
-            <label for="botanas">Botanas: </label>
-        </div>
-        <div class="seccion">
-            <label for="confiteria">Confiteria: </label>
-        </div>
-        <div class="seccion">
-            <label for="frutas">Frutas y Verduras: </label>
-        </div>
-        <div class="seccion">
-            <label for="bebidas">Bebidas: </label>
-        </div>
-
         <button type="button" onclick="submitForm()">Revisar Pedido</button>
-
     </form>
     <script>
         function submitForm(){
-            const formElements = document.getElementById('orden');
-            const formData = new FormData(formElements);
+            const formElement = document.getElementById('orden');
+            const formData = new FormData(formElement);
             const queryParams = new URLSearchParams();
 
             for(let[key,value] of formData.entries()){

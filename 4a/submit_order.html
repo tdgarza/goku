@@ -13,7 +13,6 @@
 <body>
     <style>
         body{
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             background-color: #F4F4F9;
             margin: 0;
             padding: 20px;
@@ -22,7 +21,7 @@
         h1{
             text-align: center;
             color: #666;
-            text-shadow: 5px 5px 5px black;
+            text-shadow: 5px 5px 5px rgb(167, 157, 239);
         }
         form, #resumenpedido{
             background: white;
@@ -31,8 +30,9 @@
             padding: 20px;
             margin-top: 20px;
         }
-        input[type="text"],input[type="email"],
-        select{
+        input[type="text"],
+        input[type="email"],
+        select {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -40,6 +40,34 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
+        }
+        button{
+            background-color: #4caf50;
+            color: wheat;
+            padding: 14px 20px;
+            margin: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover{
+            background-color: #45a049;
+        }
+        hr{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+        #resumenpedido p{
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        #resumenpedido p:last-child{
+            border-bottom: none;
         }
         
     </style>
@@ -80,8 +108,18 @@
         </nav>
     </div>
     <h1>Resumen del pedido</h1>
-    <div class="resumenpedido">
-
-    </div>
+    <div id="resumenpedido"></div>
+        <script>
+            window.onload = function() {
+                const params = new URLSearchParams(window.location.search);
+                const resumenpedido = document.getElementById('resumenpedido');
+                for (const [key, value] of params.entries()) {
+                    const detail = document.createElement('p');
+                    detail.textContent = `${key}: ${value}`;
+                    resumenpedido.appendChild(detail);
+                }
+            };
+        </script>
+    
 </body>
 </html>

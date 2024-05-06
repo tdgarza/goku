@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda en línea</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+       /* Estilos generales aplicados a toda la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #5a5a5a;
+    text-align: center;
+}
+
+/* Estilos para el formulario de productos */
+#productForm {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Estilos para los selectores y botones */
+select, input[type="number"] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ajusta el padding sin aumentar el ancho */
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para la navegación entre páginas si es necesario */
+.nav-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    background-color: #f8f8f8;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.nav-links a:hover {
+    background-color: #e8e8e8;
+}
+
+/* Estilos adicionales para organización visual */
+section {
+    margin-bottom: 20px;
+}
+
+/* Estilos para separar visualmente cada sección de productos */
+.section-header {
+    font-size: 18px;
+    color: #444;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+
+    </style>
+    <h1>Tienda en línea de Comestibles</h1>
+    <form id="orderForm">
+        <div class="section">
+            <label for="lacteos">Lácteos:</label>
+            <select id="lacteos" name="lacteos">
+                <option value="leche" data-price="50">Leche</option>
+                <option value="queso" data-price="30">Queso</option>
+                <option value="yogurt"data-price="20">Yogurt</option>
+                <!-- Agregar más opciones aquí -->
+            </select>
+            <div>
+                Cantidad:
+                <label><input type="radio" name="cantidadLacteos" value="1"> 1</label>
+                <label><input type="radio" name="cantidadLacteos" value="2"> 2</label>
+                <label><input type="radio" name="cantidadLacteos" value="3"> 3</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <label for="abarrotes">Abarrotes:</label>
+            <select id="abarrotes" name="abarrotes">
+                <option value="sabritas" data-price="50">sabritas</option>
+                <option value="doritos" data-price="20">doritos</option>
+                <option value="chetos" data-price="30">chetos</option>
+                <!-- Agregar más opciones aquí -->
+            </select>
+            <div>
+                Cantidad:
+                <label><input type="radio" name="cantidadAbarrotes" value="1"> 1</label>
+                <label><input type="radio" name="cantidadAbarrotes" value="2"> 2</label>
+                <label><input type="radio" name="cantidadAbarrotes" value="3"> 3</label>
+            </div>
+        </div>
+        
+
+        <!-- Agregar más secciones aquí -->
+
+        <button type="button" onclick="submitForm()">Enviar pedido</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const abarrotesSelect = document.getElementById('abarrotes');
+            const selectAbarrote = abarrotesSelect.options[abarrotesSelect.selectedIndex];
+            const cantidadAbarrotes = document.querySelector('input[name="cantidadAbarrotes"]:checked').value;
+            
+            let queryString = `producto=${selectAbarrote.value}&cantidad=${cantidadAbarrotes}&precio=${precioAbarrotes} `;
+
+            const lacteosSelect = document.getElementById('lacteos');
+            const selectLacteos = abarrotesSelect.options[lacteosSelect.selectedIndex];
+            const cantidadLacteos = document.querySelector('input[name="cantidadLacteos"]:checked').value;
+            
+            let queryString = `producto=${selectLacteos.value}&cantidad=${cantidadLacteos}&precio=${precioLacteos} `;
+
+            const formElement = document.getElementById('orderForm');
+            const formData = new FormData(formElement);
+            const queryParams = new URLSearchParams();
+
+                for (let [key, value] of formData.entries()) {
+                    queryParams.append(key, value);
+                }
+
+        window.location.href = 'review_order.html?' + query;
+        }
+
+    </script>
+</body>
+</html>

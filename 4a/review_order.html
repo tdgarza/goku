@@ -105,7 +105,7 @@
         <label for="direccion">Direccion</label>
         <input type="text" name="direccion" id="direccion" placeholder="Calle, numero, colonia" required>
         <label for="telefono">Telefono</label>
-        <input type="text" name="telefono" id="telefono" placeholder="xxx-xxx-xxx" required>
+        <input type="text" name="telefono" id="telefono" placeholder="xxx-xxx-xxx">
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email" placeholder="tuusuario@servidor.com" required>
         <select name="paymentMethod" id="paymentMethod">
@@ -133,9 +133,11 @@
             const formElement = document.getElementById('confirmacion');
             const formData = new FormData(formElement);
             const queryParams = new URLSearchParams();
+
             for (let [key, value] of formData.entries()){
                 queryParams.append(key,value);
-            }window.location.href = `submit_order.html?${queryParams}`;
+            }
+            window.location.href = `submit_order.html?${queryParams}`;
         }
     </script>
 </body>
