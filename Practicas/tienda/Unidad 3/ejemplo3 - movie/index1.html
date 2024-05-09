@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+    --accent-color: #50fa7b;
+}
+
+body {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    margin: 20px;
+}
+
+.search {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    width: 300px;
+    font-size: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.movie {
+    background: var(--secondary-color);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    width: 220px;
+    cursor: pointer;
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.movie-info span {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+}
+
+.overview {
+    display: none;
+}
+
+    </style>
+    <header>
+        <input type="text" id="search" class="search" placeholder="Buscar películas...">
+    </header>
+    <main id="main"></main>
+    <script>
+        // URL de la API para obtener películas populares y la base de imágenes
+        const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
+
+// Elementos del DOM
+const main = document.getElementById('main');
+const search = document.getElementById('search');
+
+// Cargar películas iniciales
+getMovies(API_URL);
+
+// Función para obtener películas desde la API
+async function getMovies(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    displayMovies(data.results);
+}
+
+// Función para mostrar películas en el DOM
+function displayMovies(movies) {
+    main.innerHTML = '';  // Limpiar el main
+    movies.forEach(movie => {
+        const { title, poster_path, vote_average, overview } = movie;
+        const movieElement = document.createElement('div');
+        movieElement.classList.add('movie');
+        movieElement.innerHTML = `
+            <img src="${IMG_PATH}${poster_path}" alt="${title}">
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            </div>
+        `;
+        main.appendChild(movieElement);
+    });
+}
+
+// Función para determinar el color de la calificación
+function getClassByRate(vote) {
+    if (vote >= 8) return 'green';
+    else if (vote >= 5) return 'orange';
+    else return 'red';
+}
+
+// Evento para buscar películas
+search.addEventListener('input', (e) => {
+    const searchTerm = search.value;
+    if (searchTerm && searchTerm.trim()) {
+        getMovies(`https://api.themoviedb.org/3/search/movie?api_key=TU_CLAVE&query=${searchTerm}`);
+    } else {
+        getMovies(API_URL);  // Volver a cargar películas populares si la búsqueda está vacía
+    }
+});
+
+
+    </script>
+</body>
+</html>
