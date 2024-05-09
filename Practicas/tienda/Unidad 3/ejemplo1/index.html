@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('background.jpg');
+    background-size: cover;
+}
+
+.weather-app {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+
+select, button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#weatherResult p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+    </style>
+    <div class="weather-app">
+        <select id="cityInput">
+            <option value="Madrid">Madrid</option>
+            <option value="New York">Nueva York</option>
+            <option value="Tokyo">Tokio</option>
+            <option value="Paris">París</option>
+            <option value="Mexico City">Ciudad de México</option>
+        </select>
+        <button onclick="getWeather()">Obtener Clima</button>
+        <div id="weatherResult"></div>
+    </div>
+    <script>
+        async function getWeather() {
+    const city = document.getElementById('cityInput').value;
+    const apiKey = 'YOUR_API_KEY';  // Reemplaza YOUR_API_KEY con tu propia clave de API
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.cod === 200) {
+            const resultDiv = document.getElementById('weatherResult');
+            resultDiv.innerHTML = `<p>Temperatura en ${city}: ${data.main.temp} °C</p>
+                                   <p>Descripción: ${data.weather[0].description}</p>
+                                   <p>Humedad: ${data.main.humidity}%</p>`;
+        } else {
+            throw new Error(data.message);
+        }
+    } catch (error) {
+        const resultDiv = document.getElementById('weatherResult');
+        resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+}
+
+    </script>
+</body>
+</html>

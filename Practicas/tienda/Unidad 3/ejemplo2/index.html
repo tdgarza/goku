@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282a36;
+    color: #f8f8f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.meme-generator {
+    background-color: #44475a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 350px;
+}
+
+input, select, button {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #50fa7b;
+    color: #282a36;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6272a4;
+}
+
+img {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+    </style>
+    <div class="meme-generator">
+        <h1>Generador de Memes</h1>
+        <input type="text" id="topText" placeholder="Texto Superior">
+        <input type="text" id="bottomText" placeholder="Texto Inferior">
+        <select id="memeSelect">
+            <option value="Condescending-Wonka">Condescending Wonka</option>
+            <option value="Futurama-Fry">Futurama Fry</option>
+            <option value="One-Does-Not-Simply">One Does Not Simply</option>
+            <option value="First-World-Problems">First World Problems</option>
+            <option value="Success-Kid">Success Kid</option>
+        </select>
+        <button onclick="generateMeme()">Generar Meme</button>
+        <img id="resultImage" src="" alt="Tu Meme Aquí" />
+    </div>
+    <script>
+        async function generateMeme() {
+    const topText = encodeURIComponent(document.getElementById('topText').value);
+    const bottomText = encodeURIComponent(document.getElementById('bottomText').value);
+    const meme = document.getElementById('memeSelect').value;
+    const url = `https://ronreiter-meme-generator.p.rapidapi.com/meme?top=${topText}&bottom=${bottomText}&meme=${meme}&font_size=50&font=Impact`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY', // Reemplaza con tu clave API real
+            'X-RapidAPI-Host': 'ronreiter-meme-generator.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.blob();
+        const imageUrl = URL.createObjectURL(result);
+        document.getElementById('resultImage').src = imageUrl;
+    } catch (error) {
+        console.error('Error al generar el meme:', error);
+    }
+}
+
+    </script>
+</body>
+</html>

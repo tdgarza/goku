@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        /* Estilos específicos para review_order.html */
+#confirmationForm {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#confirmationForm label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#confirmationForm input, #confirmationForm select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#confirmationForm button {
+    width: auto;
+    padding: 10px 30px;
+    font-size: 18px;
+    display: block;
+    margin: 20px auto;
+    background-color: #008cba;
+}
+
+#confirmationForm div {
+    margin-top: 15px;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* Resaltar los detalles del pedido */
+#confirmationForm hr {
+    border-top: 2px solid #eee;
+}
+
+#confirmationForm div {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+    </style>
+    <h1>Confirmar Pedido</h1>
+    <form id="confirmationForm">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="address">Dirección:</label>
+        <input type="text" id="address" name="address" required>
+        <label for="phone">Teléfono:</label>
+        <input type="text" id="phone" name="phone" required>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="paymentMethod">Método de pago:</label>
+        <select id="paymentMethod" name="paymentMethod">
+            <option value="creditCard">Tarjeta de crédito</option>
+            <option value="paypal">PayPal</option>
+        </select>
+    </form>
+    
+    <div id="orderDetails"></div>
+    <button onclick="confirmOrder()">Confirmar Pedido</button>
+
+    <script>
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        const details = {
+            'productoLacteos': params.get('productoLacteos'),
+            'cantidadLacteos': params.get('cantidadLacteos'),
+            'precioLacteos': params.get('precioLacteos'),
+            'productoAbarrotes': params.get('productoAbarrotes'),
+            'cantidadAbarrotes': params.get('cantidadAbarrotes'),
+            'precioAbarrotes': params.get('precioAbarrotes'),
+            'totalGeneral': params.get('totalGeneral')
+        };
+        
+        let output = `Producto Lácteos: ${details.productoLacteos}, Cantidad: ${details.cantidadLacteos}, Precio Unitario: $${details.precioLacteos}<br>
+                      Producto Abarrotes: ${details.productoAbarrotes}, Cantidad: ${details.cantidadAbarrotes}, Precio Unitario: $${details.precioAbarrotes}<br>
+                      Total del Pedido: $${details.totalGeneral}`;
+
+        document.getElementById('orderDetails').innerHTML = output;
+    };
+
+    function confirmOrder() {
+        const form = document.getElementById('confirmationForm');
+        const formData = new FormData(form);
+        const searchParams = new URLSearchParams(window.location.search);
+        
+        for (let [key, value] of formData.entries()) {
+            searchParams.set(key, value);
+        }
+
+        window.location.href = 'submit_order.html?' + searchParams.toString();
+    }
+    </script>
+</body>
+</html>

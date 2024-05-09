@@ -141,27 +141,36 @@ section {
     </form>
 
     <script>
-      function submitForm() {
-            const queryParams = new URLSearchParams();
+function submitForm() {
+    const queryParams = new URLSearchParams();
 
-            // Procesar lácteos
-            const lacteosSelect = document.getElementById('lacteos');
-            const selectedLacteos = lacteosSelect.options[lacteosSelect.selectedIndex];
-            const cantidadLacteos = document.querySelector('input[name="cantidadLacteos"]:checked').value;
-            queryParams.append('productoLacteos', selectedLacteos.value);
-            queryParams.append('cantidadLacteos', cantidadLacteos);
-            queryParams.append('precioLacteos', selectedLacteos.dataset.price);
+    // Procesar lácteos
+    const lacteosSelect = document.getElementById('lacteos');
+    const selectedLacteos = lacteosSelect.options[lacteosSelect.selectedIndex];
+    const cantidadLacteos = document.querySelector('input[name="cantidadLacteos"]:checked').value;
+    const precioTotalLacteos = selectedLacteos.dataset.price * cantidadLacteos;
+    queryParams.append('productoLacteos', selectedLacteos.value);
+    queryParams.append('cantidadLacteos', cantidadLacteos);
+    queryParams.append('precioLacteos', selectedLacteos.dataset.price);
+    queryParams.append('totalLacteos', precioTotalLacteos);
 
-            // Procesar abarrotes
-            const abarrotesSelect = document.getElementById('abarrotes');
-            const selectedAbarrotes = abarrotesSelect.options[abarrotesSelect.selectedIndex];
-            const cantidadAbarrotes = document.querySelector('input[name="cantidadAbarrotes"]:checked').value;
-            queryParams.append('productoAbarrotes', selectedAbarrotes.value);
-            queryParams.append('cantidadAbarrotes', cantidadAbarrotes);
-            queryParams.append('precioAbarrotes', selectedAbarrotes.dataset.price);
+    // Procesar abarrotes
+    const abarrotesSelect = document.getElementById('abarrotes');
+    const selectedAbarrotes = abarrotesSelect.options[abarrotesSelect.selectedIndex];
+    const cantidadAbarrotes = document.querySelector('input[name="cantidadAbarrotes"]:checked').value;
+    const precioTotalAbarrotes = selectedAbarrotes.dataset.price * cantidadAbarrotes;
+    queryParams.append('productoAbarrotes', selectedAbarrotes.value);
+    queryParams.append('cantidadAbarrotes', cantidadAbarrotes);
+    queryParams.append('precioAbarrotes', selectedAbarrotes.dataset.price);
+    queryParams.append('totalAbarrotes', precioTotalAbarrotes);
 
-            window.location.href = 'review_order.html?' + queryParams.toString();
-        }
+    // Calcular total general
+    const totalGeneral = parseInt(precioTotalLacteos, 10) + parseInt(precioTotalAbarrotes, 10);
+    queryParams.append('totalGeneral', totalGeneral);
+
+    window.location.href = 'review_order.html?' + queryParams.toString();
+}
+
 
     </script>
 </body>
