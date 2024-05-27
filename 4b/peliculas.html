@@ -43,10 +43,60 @@
             outline: none;
             background-color: #9bc6e5;
         }
+        .movie{
+            width: 300px;
+            margin: 10px;
+            background-color: #9bc6e5;
+            box-shadow: 0 5px 5px grey;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+
+        }
         main{
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+        }
+
+        .movie img {
+            width: 100%;
+        }
+        .movies-info{
+            color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+            padding: 5px 10px 10px;
+            letter-spacing: 5px;
+        }
+        .movies-info h3{
+            margin-top: 0;
+        }
+        .movies-info span.green {
+            color: lightgreen;
+        }
+        .movies-info span.orange {
+            color: orange;
+        }
+        .movies-info span.red {
+            color: red;
+        }
+        .overview {
+            background-color: #fff;
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            max-height: 100%;
+            transform: translateY(101%);
+            overflow-y: auto;
+            transition: transform 0.3s ease-in;
+        }
+        .movie:hover .overview {
+            transform: translateY(0);
         }
         
     </style>
@@ -129,9 +179,28 @@
                         </div>  
                         `;
                         main.appendChild(movieElements)
-
-            });
+                    });
         }
+        function getClassByRate(vote){
+            if(vote >= 8){
+                return 'green'
+            }else if(vote >= 5){
+                return 'orange'
+            }else{
+                return 'red'
+            }
+        }
+        
+        form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+            const searchTerm = search.value;
+            if(searchTerm && searchTerm !== ''){
+                getMovies(SEARCH_API + searchTerm);
+                search.value = '';
+            } else {
+                window.location.reload();
+            }
+        })
 
     </script>
     

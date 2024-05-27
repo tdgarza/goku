@@ -42,6 +42,68 @@
             outline: none;
             background-color: #006494;
         }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .movie{
+            width: 300px;
+            margin: 10px;
+            background-color: #2e4860;
+            box-shadow: 0 5px 5px gray;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .movie img {
+            width: 100%;
+        }
+        .movie-info {
+            color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+            padding: 5px 10px 10px;
+            letter-spacing: 1px;
+        }
+        .movie-info h3 {
+            margin-top: 0;
+        }
+        .movie-info span{
+            background-color: #2e4860;
+            padding: 3px 1px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .movie-info span.green{
+            color: lightgreen;
+        }
+        .movie-info span.orange{
+            color: orange;
+        }
+        .movie-info span.red{
+            color: red;
+        }
+        .overview{
+            background-color: #9ac4f8;
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            max-height: 100%;
+            transform: translateY(101%);
+            overflow-y: auto;
+            transition: transform 0.3s ease-in;
+            opacity: 80%;
+            color: #3d405b;
+        }
+        .movie:hover .overview{
+            transform: translateY(0);
+        }
+
 
     </style>
     <div style="margin: 24px;">
@@ -124,6 +186,26 @@
                 ;
             })
         }
+        function getClassByRate(vote){
+            if(vote >= 8){
+                return 'green';
+            } else if(vote >= 5){
+                return 'orange';
+            } else {
+                return 'red';
+            }
+        }
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const searchTerm = search.value;
+            if(searchTerm && searchTerm !== ''){
+                getMovies(SEARCH_API + searchTerm)
+                search.value = '';
+            }else{
+                window.location.reload();
+            }
+        })
+
     </script>
 </body>
 </html>

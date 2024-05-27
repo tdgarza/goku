@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikachu</title>
+</head>
+<body class="back">
+    <style>
+        body{
+            background-color: yellow;
+        }
+        .pokeimg1{
+            width: 250px;
+            height: 100px;
+            position: absolute;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: 1px 1px 1px black;
+          
+        } 
+        button{
+            width: 80px;
+            height: 60px;
+           background-color: yellow;
+           margin: 5px;
+           padding: 10px;
+           border-radius: 50px;
+           border-color: brown;
+           font-size: 10px;
+           line-height: 32px;
+           text-transform: uppercase;
+           position: absolute;
+           left: 470px;
+           top: 390px;
+        }
+        .placeholder{
+            position: absolute;
+            top: 400px;
+            left: 300px;
+            width: 165px;
+            height: 40px;
+            font-size: 25px;
+            border-radius: 10px;
+            background-color: #f9ee60;
+            border-color: brown;
+        }
+        .pokeImg{
+            width: 205px;
+            height: 205px;
+            position: absolute;
+            top: 300px;
+            left: 300px;
+        }
+    </style>
+    <img src="pokedex1.jpg" alt="pokedex" width="800px">
+    <input type="text" placeholder="pikachu" id="pokeName" class="placeholder">
+    <img src="pokeball.jpg" alt="PokeBola" id="pokeImg" width="250px" class="pokeimg">
+
+    <div id="pokename" class="pokeimg1" style="left: 350px; top: 450px; font-size: 20px; transform: rotate(-45deg);">Pikachu</div>
+    <div id="pokeHe" class="pokeimg1" style="left: 500px; top: 350px; font-size: 20px">Peso</div>
+    <div id="pokeWe" class="pokeimg1" style="left: 700px; top: 350px; font-size: 20px">Altura</div>
+    <div id="pokeType" class="pokeimg1" style="left: 900px; top: 350px; font-size: 20px">Tipo</div>
+    <div id="pokeitem" class="pokeimg1" style="left: 900px; top: 350px; font-size: 20px">Item</div>
+    <div id="pokemove1" class="pokeimg1" style="left: 900px; top: 150px; font-size: 20px">Movimiento1</div>
+    <div id="pokemove2" class="pokeimg1" style="left: 900px; top: 350px; font-size: 20px">Movimiento2</div>
+    <div id="pokemove3" class="pokeimg1" style="left: 900px; top: 550px; font-size: 20px">Movimiento3</div>
+    <div id="pokemove4" class="pokeimg1" style="left: 900px; top: 750px; font-size: 20px">Movimiento4</div>
+
+    <button onclick="fetchPokemon()" class="button"><img src="pokebola.jpg" style="height: 70%; width:70%;"></button>
+    <div class="grafica">
+        <canvas id="miCanvas">
+        </canvas>
+    </div>
+    <script>
+        const fetchPokemon = () => {
+            const pokeNameInput = document.getElementById("pokeName");
+            let pokeName = pokeNameInput.value;
+            pokeName = pokeName.toLowerCase();
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
+
+            fetch(url).then((res) => {
+                if (res.status != "200"){
+                    console.log(res);
+                    pokeImage("./pokemon-sad.jpg")
+                }
+                else{
+                    return res.json();
+                }
+            }).then((data) =>{
+                if(data){
+                    console.log(data);
+                }
+            })
+        }
+    </script>
+
+   
+</body>
+</html>
