@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #97ce4c;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .card{
+            background-color: #f0e14a;
+            border: 2px solid #44281d;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px black;
+        }
+        h1{
+            color: #44281d;
+            text-shadow: beige;
+            text-align: center;
+        }
+        .card img{
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h3{
+            margin: 10px 0 5px 0;
+            color: #97ce4c;
+           text-shadow: 1px 1px #44281d;;
+        }
+        .card p{
+            margin: 5px 0;
+            color: #555;
+        }
+        .card:hover{
+            transform: scale(1.1);
+        }
+    </style>
+    <header><h1>Rick and Morty</h1> </header>
+    <main id="datacontainer">
+        <!-- aqui pongo la informacion-->
+    </main>
+    <script>
+        const API_URL = 'https://rickandmortyapi.com/api/character';
+        const datacontainer = document.getElementById('datacontainer');
+
+        //Funcion para obtener los datos del API
+        async function fetchData(url){
+            try{
+                const response = await fetch(url);
+                const data = await response.json();
+                displayData(data.results);
+            }catch(error){
+                console.error('Error al obtener los datos:', error);
+            }
+        }
+        //Para obtener los datos del DOM
+        function displayData(data) {
+            datacontainer.innerHTML = ''; //para limpiar el contenedor
+            
+            data.forEach(item =>{
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.name; //opcional para que aparezca el nombre de la imagen cuando pase el puntero del mouse
+                const title = document.createElement('h3');
+                title.textContent = item.name;
+
+                const status = document.createElement('p');
+                status.textContent = `Status: ${item.status}`;
+                const species = document.createElement('p');
+                species.textContent = `Especie: ${item.species}`;
+                const gender = document.createElement('p');
+                gender.textContent = `Genero: ${item.gender}`;
+
+                card.appendChild(img);
+                card.appendChild(title);
+                card.appendChild(status);
+                card.appendChild(species);
+                card.appendChild(gender);
+
+                datacontainer.appendChild(card);
+            });
+        }
+        fetchData(API_URL);
+    </script>
+
+</body>
+</html>
