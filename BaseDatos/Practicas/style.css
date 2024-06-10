@@ -1,0 +1,79 @@
+body {
+    background-image: url("batman.jpg");
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #333; /* Color del texto principal */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #3498db; /* Color azul para el encabezado */
+}
+
+#formulario {
+    background-color: #f2f2f2; /* Fondo gris claro para el formulario */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+#formulario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333; /* Color de texto para las etiquetas */
+}
+
+#formulario input[type="text"],
+#formulario input[type="email"],
+#formulario input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #3498db; /* Borde azul para los campos de entrada */
+    border-radius: 5px;
+    background-color: #fff; /* Fondo blanco para los campos de entrada */
+    color: #333; /* Color de texto en los campos de entrada */
+}
+
+#formulario input[type="submit"] {
+    background-color: #3498db; /* Fondo azul para el botón de envío */
+    color: #fff; /* Color de texto blanco para el botón de envío */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formulario input[type="submit"]:hover {
+    background-color: #2980b9; /* Color azul más oscuro al pasar el cursor sobre el botón */
+}
+
+#mensaje {
+    color: #3498db; /* Color azul para mensajes de éxito */
+}
+
+#resultados {
+    background-color: rgba(52, 152, 219, 0.2); /* Fondo azul claro para la tabla de resultados */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+table {
+    width: 0%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #3498db; /* Borde azul para la tabla */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    color: #333; /* Color de texto para las celdas de la tabla */
+}

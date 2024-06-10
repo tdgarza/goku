@@ -1,0 +1,46 @@
+body{
+    background-color: #3498db;
+    color: #333; /* Color del texto principal */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    color: #c6ef10;
+}
+
+table{
+    width: 50%;
+    border-collapse: collapse;
+}
+table, th, td{
+    border: 2px solid white;
+}
+th, td{
+    padding: 8px;
+    text-align: left;
+    color: pink;
+}
+table tbody tr:nth-child(odd){
+    background: #e1edf8;
+}
+#formulario{
+    background-color: #e1edf8;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+#formulario label{
+    display: block;
+    margin-bottom: 10px;
+    color:#333;
+}
+#formulario input[type="text"]{
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+}
