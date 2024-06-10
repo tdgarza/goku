@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes de Harry Potter</title>
+    <style>
+        body {
+            background-color: #97ce4c;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .card {
+            background-color: #f0e14a;
+            border: 2px solid #44281d;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.2s;
+        }
+        h1 {
+            color: #44281d;
+            text-shadow: 1px 1px beige;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h3 {
+            margin: 10px 0 5px 0;
+            color: #97ce4c;
+            text-shadow: 1px 1px #44281d;
+        }
+        .card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personajes de Harry Potter</h1>
+    </header>
+    <main id="dataContainer">
+        <!-- aquí se mostrará la información -->
+    </main>
+    <script>
+        const API_URL = "https://harry-potter-api.onrender.com/personajes";
+        const dataContainer = document.getElementById('dataContainer');
+
+        async function fetchData(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                dataContainer.innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+            }
+        }
+
+        function displayData(data) {
+            dataContainer.innerHTML = ''; // Limpiar contenedor
+
+            data.forEach(item => {
+                // Crear elementos de la tarjeta
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const img = document.createElement('img');
+                img.src = item.imagen;
+                img.alt = item.personaje;
+
+                const title = document.createElement('h3');
+                title.textContent = item.personaje;
+
+                const nick = document.createElement('p');
+                nick.textContent = `Apodo: ${item.apodo}`;
+
+                const house = document.createElement('p');
+                house.textContent = `Casa: ${item.casaDeHogwarts}`;
+
+                const actor = document.createElement('p');
+                actor.textContent = `Interpretado por: ${item.interpretado_por}`;
+
+                // Añadir elementos a la tarjeta
+                card.appendChild(img);
+                card.appendChild(title);
+                card.appendChild(nick);
+                card.appendChild(house);
+                card.appendChild(actor);
+
+                // Añadir tarjeta al contenedor
+                dataContainer.appendChild(card);
+            });
+        }
+
+        // Llamar a la función fetchData con la URL de la API
+        fetchData(API_URL);
+    </script>
+</body>
+</html>
