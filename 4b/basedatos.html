@@ -99,7 +99,7 @@
         const datacontainer = document.getElementById('datacontainer');
 
         
-        async function fetchData(url) {
+       async function fetchData(url) {
             let allCharacters = [];
             try {
                 while (url) {
@@ -113,6 +113,17 @@
                 console.error('Error al obtener los datos:', error);
             }
         }
+
+        async function fetchData(url){
+            try{
+                const response = await fetch(url);
+                const data = await response.json();
+                displayData(data.results);
+            }catch(error){
+                console.error('Error al obtener los datos:', error);
+            }
+        }
+        
         
         function displayData(data) {
             datacontainer.innerHTML = ''; 
