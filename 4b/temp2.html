@@ -51,57 +51,41 @@
             transform: scale(1.3 );
         }
     </style>
-    <header><h1>Rick and Morty</h1> </header>
+    <header><h1>Arte Chicago</h1> </header>
     <main id="datacontainer">
         <!-- aqui pongo la informacion-->
     </main>
     <script>
-        const API_URL = 'https://rickandmortyapi.com/api/character';
+        const API_URL = 'https://api.artic.edu/api/v1/artworks/129884';
         const datacontainer = document.getElementById('datacontainer');
 
-        //Funcion para obtener los datos del API
-        async function fetchData(url){
-            try{
+        async function fetchData(url) {
+            try {
                 const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
                 const data = await response.json();
-                displayData(data.results);
-            }catch(error){
-                console.error('Error al obtener los datos:', error);
+                displayData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                dataContainer.innerHTML = `<p>Error fetching data: ${error.message}</p>`;
             }
         }
         //Para obtener los datos del DOM
-        function displayData(data) {
+        function displayData(data1) {
             datacontainer.innerHTML = ''; //para limpiar el contenedor
             
-            data.forEach(item =>{
+            data1.forEach(item =>{
                 const card = document.createElement('div');
                 card.classList.add('card');
 
-                const img = document.createElement('img');
-                img.src = item.image;
-                img.alt = item.name; //opcional para que aparezca el nombre de la imagen cuando pase el puntero del mouse
-                const id = document.createElement('h4');
-                id.textContent = item.id;
+                
                 const title = document.createElement('h3');
-                title.textContent = item.name;
+                title.textContent = item.data.description;
 
-                const status = document.createElement('p');
-                status.textContent = `Status: ${item.status}`;
-                const species = document.createElement('p');
-                species.textContent = `Especie: ${item.species}`;
-                const gender = document.createElement('p');
-                gender.textContent = `Genero: ${item.gender}`;
-
-                const origen = document.createElement('p');
-                gender.textContent = `Tyler: ${item.origin.name}`;
-
-                card.appendChild(img);
                 card.appendChild(title);
-                card.appendChild(id);
-                card.appendChild(status);
-                card.appendChild(species);
-                card.appendChild(gender);
-                card.appendChild(origen);
+               
 
                 datacontainer.appendChild(card);
             });

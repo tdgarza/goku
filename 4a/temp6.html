@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte Chicago</title>
+    <style>
+        body {
+            background-color: #97ce4c;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .card {
+            background-color: #f0e14a;
+            border: 2px solid #44281d;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.3s;
+        }
+        h1 {
+            color: #44281d;
+            text-shadow: 1px 1px beige;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h3 {
+            margin: 10px 0 5px 0;
+            color: #97ce4c;
+            text-shadow: 1px 1px #44281d;
+        }
+        .card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Arte Chicago</h1>
+        <form id="form">
+            <input type="text" id="search" placeholder="Search for artwork...">
+        </form>
+    </header>
+    <main id="main">
+        <!-- aquí se mostrará la información -->
+    </main>
+    <script>
+        const API_URL = 'https://api.artic.edu/api/v1/artworks';
+        const SEARCH_API = 'https://api.artic.edu/api/v1/artworks/search?q=';
+        const main = document.getElementById('main');
+        const form = document.getElementById('form');
+        const search = document.getElementById('search');
+
+        // Obtención de las primeras obras de arte
+        getArtworks(API_URL);
+
+        async function getArtworks(url) {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            showArtworks(data.data); // Aquí accedemos a la propiedad 'data' de la respuesta
+        }
+
+        function showArtworks(artworks) {
+            main.innerHTML = ''; // Limpiar contenedor
+
+            artworks.forEach((artwork) => {
+                const { title, artist_title, date_display, image_id } = artwork;
+
+                const artworkElement = document.createElement('div');
+                artworkElement.classList.add('card');
+
+                artworkElement.innerHTML = `
+                    ${image_id ? `<img src="https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg" alt="${title}">` : ''}
+                    <h3>${title}</h3>
+                    ${artist_title ? `<p>Artist: ${artist_title}</p>` : ''}
+                    ${date_display ? `<p>Date: ${date_display}</p>` : ''}
+                `;
+                main.appendChild(artworkElement);
+            });
+        }
+    </script>
+</body>
+</html>

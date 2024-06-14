@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #97ce4c;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .card{
+            background-color: #f0e14a;
+            border: 2px solid #44281d;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px black;
+        }
+        h1{
+            color: #44281d;
+            text-shadow: beige;
+            text-align: center;
+        }
+        .card img{
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h3{
+            margin: 10px 0 5px 0;
+            color: #97ce4c;
+           text-shadow: 1px 1px #44281d;;
+        }
+        .card p{
+            margin: 5px 0;
+            color: #555;
+        }
+        .card:hover{
+            transform: scale(1.3 );
+        }
+    </style>
+     <div style="margin: 24px;">
+        <nav class="nav navbar-light" style="background-color: #9bc6e5;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="perfil.html">Perfil</a><br>
+                                <a class="dropdown-item" href="calculadora.html">Calculadora</a><br>
+                                <a class="dropdown-item" href="tienda.html">Tienda</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="tiendapedido.html">Tienda Pedido</a><br>
+                                <a class="dropdown-item" href="json.html">Json</a><br>
+                                <a class="dropdown-item" href="tiendapedido1.html">Tienda Pedido 2</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="basedatos.html">Base de datos</a><br>
+                                <a class="dropdown-item" href="peliculas.html">Peliculas</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <header><h1>Rick and Morty</h1> </header>
+    <main id="datacontainer">
+        <!-- aqui pongo la informacion-->
+    </main>
+    <script>
+        const API_URL = 'https://rickandmortyapi.com/api/character';
+        const datacontainer = document.getElementById('datacontainer');
+
+        
+        async function fetchData(url) {
+            let allCharacters = [];
+            try {
+                while (url) {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    allCharacters = allCharacters.concat(data.results);
+                    url = data.info.next;
+                }
+                displayData(allCharacters);
+            } catch (error) {
+                console.error('Error al obtener los datos:', error);
+            }
+        }
+        
+        function displayData(data) {
+            datacontainer.innerHTML = ''; 
+            
+            data.forEach(item =>{
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.name; 
+                const id = document.createElement('h4');
+                id.textContent = item.id;
+                const title = document.createElement('h3');
+                title.textContent = item.name;
+
+                const status = document.createElement('p');
+                status.textContent = `Status: ${item.status}`;
+                const species = document.createElement('p');
+                species.textContent = `Especie: ${item.species}`;
+                const gender = document.createElement('p');
+                gender.textContent = `Genero: ${item.gender}`;
+
+                const origen = document.createElement('p');
+                gender.textContent = `Tyler: ${item.origin.name}`;
+
+                card.appendChild(img);
+                card.appendChild(title);
+                card.appendChild(id);
+                card.appendChild(status);
+                card.appendChild(species);
+                card.appendChild(gender);
+                card.appendChild(origen);
+
+                datacontainer.appendChild(card);
+            });
+        }
+        fetchData(API_URL);
+    </script>
+
+</body>
+</html>

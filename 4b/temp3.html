@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte Chicago</title>
+    <style>
+        body {
+            background-color: #97ce4c;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .card {
+            background-color: #f0e14a;
+            border: 2px solid #44281d;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.3s;
+        }
+        h1 {
+            color: #44281d;
+            text-shadow: 1px 1px beige;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h3 {
+            margin: 10px 0 5px 0;
+            color: #97ce4c;
+            text-shadow: 1px 1px #44281d;
+        }
+        .card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Arte Chicago</h1></header>
+    <main id="datacontainer">
+        <!-- aquí se mostrará la información -->
+    </main>
+    <script>
+        const API_URL = 'https://api.artic.edu/api/v1/artworks/129884';
+        const datacontainer = document.getElementById('datacontainer');
+
+        async function fetchData(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                displayData(data.data); // Aquí accedemos a la propiedad 'data' de la respuesta
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                datacontainer.innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+            }
+        }
+
+        // Función para mostrar los datos en el DOM
+        function displayData(data) {
+            datacontainer.innerHTML = ''; // Limpiar contenedor
+
+            // Crear elementos de la tarjeta
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            if (data.image_url) {
+                const img = document.createElement('img');
+                img.src = `https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`; // Construimos la URL de la imagen
+                img.alt = data.title;
+                card.appendChild(img);
+            }
+
+            const title = document.createElement('h3');
+            title.textContent = data.title;
+            card.appendChild(title);
+
+            if (data.artist_title) {
+                const artist = document.createElement('p');
+                artist.textContent = `Artist: ${data.artist_title}`;
+                card.appendChild(artist);
+            }
+
+            if (data.date_display) {
+                const date = document.createElement('p');
+                date.textContent = `Date: ${data.date_display}`;
+                card.appendChild(date);
+            }
+
+            // Añadir tarjeta al contenedor
+            datacontainer.appendChild(card);
+        }
+
+        // Llamar a la función fetchData con la URL de la API
+        fetchData(API_URL);
+    </script>
+</body>
+</html>
